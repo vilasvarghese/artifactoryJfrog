@@ -1,0 +1,349 @@
+About the Exam
+
+
+Section 4:
+
+Reference: D:\PraiseTheLord\corporateTrainer\Companies\acumen
+https://www.youtube.com/watch?v=p1au6-nMR7o
+https://www.youtube.com/watch?v=f3O_C8q-vrI
+https://www.youtube.com/watch?v=qdCVimkd9xQ
+https://github.com/jfrog/project-examples
+Exam outline and objectives
+---------------------------
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Artifactory Functionality and Key Features
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+https://www.jfrog.com/confluence/display/JFROG/JFrog+Artifactory
+https://www.jfrog.com/confluence/display/RTF6X/Pro+Features
+https://www.youtube.com/watch?v=ZCNOtVj7bow
+https://www.youtube.com/watch?v=Zbwom40sXgE
+https://jfrog.com/start-free/
+
+https://github.com/jfrog
+
+9562853118
+
+DevOps engineers are always in fire
+Explosion of Binaries
+
+Refer binary:
+https://www.linkedin.com/pulse/use-binary-repository-manager-keep-up-devops-raghav-baldania/
+devops image
+
+JFrog Xray
+	Scan for vulnerabilities
+JFrog Artifactory
+	Place to store all binaries, builds and metadata
+Bintray
+		Place for binaries to be disttributed
+		
+		
+Adv.
+	Simplicity
+	Consistency
+	
+While bulding
+	where to get dependencies from?
+		internet?
+	Where to put artifacts?
+		- Source Control Systems
+		- File system
+		- Binary repository system 
+			- Artifactory
+
+
+Artifactory
+	Binary repo manager
+	Place to store artifacts
+	Proxy for remote repo.
+		Help manage remote artifacts.
+	Dependency manager will refer to it.
+	
+All mager s/w will work with it.	
+
+
+JFrog Artifactory is a DevOps tool for end-to-end automation and management of binaries. This course demonstrates the benefits and advantages of using JFrog Artifactory in a continuous integration and continuous delivery (CI/CD) environment and the tools that can plug into its extensible framework. We also explain how to work with Artifactory in a cloud native environment including those with containers and tools such as Kubernetes.
+
+ 
+
+By design, all of the JFrog products, including Artifactory, are open for integration and enable full automation of all the commonly used tasks and processes, eliminating the need of having manual or UI based interactions. Understanding the importance of automation in development, this course also explains how JFrog Artifactory tools and plugin framework allows for a massively scalable software development lifecycle (SDLC) and exposes a RESTful API for advanced automation. Any custom automation tool or one that works with a RESTful API can take advantage of Artifactory’s extensible framework and benefits allowing enterprise teams to massively scale their development.
+
+ 
+
+In addition to integrating automation tools with Artifactory, we also cover the Artifactory Query Language (AQL) used in advanced searches for artifacts. Use flexible filters, search criteria and output fields to customize your interface. These advanced AQL searches can then be used in custom or third-party automation tools and can open up the case for metadata driven processes like retention, promotion, cleanup etc.
+
+
+Source 					Vs 			Binaries
+Text							Blob
+Diffable						Not Diffable
+Versioned by content			Versioned by metadata
+Stored by overrid				Never overrid
+
+
+Repo: 
+	text files
+	Can i clone sub directory
+Binaries: like .zip
+	download an artifact.
+	
+File server
+	Following features are missing
+		Proxy other repo.
+		Search by name, context and content
+		Manage artifact lifecycle
+		Clean SNAPSHOTS
+		Optimize storage size
+		REST API support
+		ect.
+
+Artifactory
+	Uses checksum based method to store artifacts
+	Each binary file identified by checksum
+	Actual binary stored in a seperate NFS.
+		Path implemented using a checksum.
+		
+DB Record
+	RepoName
+	Node_Path
+	sha1_actual
+	
+	So 
+		getting a file path 
+		delete file 
+			etc. is a query.
+			
+			actual file delete etc. happens during garbage collection.
+	
+	
+	
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+	Artifactory as a universal binary repository manager
+	
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+		Artifactory: can be an artifactory for any repo.
+		https://github.com/jfrog/project-examples
+		This repo. has examples for so many different langauages.
+			
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~	
+	The System of Record model
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+https://jfrog.com/blog/process-is-critical-so-are-the-systems-of-record/
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~	
+	Automation options available in Artifactory
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+https://academy.jfrog.com/jfrog-artifactory-automation-tools-2020-1
+https://www.youtube.com/watch?v=vXzVVvqPrKw
+https://www.youtube.com/watch?v=aqY5fb7R_Hc
+https://www.youtube.com/watch?v=5xbMYabN1MQ
+
+	https://www.jfrog.com/confluence/display/JFROG/REST+API		
+	https://www.jfrog.com/confluence/display/JFROG/Artifactory+Query+Language
+	https://www.jfrog.com/confluence/display/JFROG/GraphQL
+	https://www.jfrog.com/confluence/display/JFROG/Build+Integration
+	https://www.jfrog.com/confluence/display/JFROG/IDE+Integration
+	https://www.jfrog.com/confluence/display/JFROG/Pipelines+Developer+Guide
+	https://www.jfrog.com/confluence/display/JFROG/Bintray+Integration
+	https://www.jfrog.com/confluence/display/JFROG/User+Plugins
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~	
+---------------------------------------------------------------------------------
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~	
+Repositories
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+	Create local, virtual and remote repositories
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+https://www.jfrog.com/confluence/display/JFROG/Repository+Management
+
+Reference: https://www.jfrog.com/confluence/display/JFROG/Maven+Repository
+
+
+
+<distributionManagement>
+    <repository>
+        <id>central</id>
+        <name>9dbaf59b2e39-releases</name>
+        <url>http://ec2-3-128-203-99.us-east-2.compute.amazonaws.com:8081/artifactory/maven-repo</url>
+    </repository>
+    <snapshotRepository>
+        <id>snapshots</id>
+        <name>9dbaf59b2e39-snapshots</name>
+        <url>http://ec2-3-128-203-99.us-east-2.compute.amazonaws.com:8081/artifactory/maven-repo</url>
+    </snapshotRepository>
+</distributionManagement>
+
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~	
+	Configure different repositories in Artifactory
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Practical:
+https://www.jfrog.com/confluence/display/RTF6X/Configuring+Repositories
+https://stackoverflow.com/questions/66861620/practical-use-of-artifactory-repositories	
+https://www.jfrog.com/confluence/display/RTF6X/Configuring+Artifactory#
+https://github.com/jfrog/project-examples
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~	
+	Use repository naming conventions
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+D:\PraiseTheLord\HSBGInfotech\DevOps\artifactory
+https://jfrog.com/whitepaper/best-practices-structuring-naming-artifactory-repositories/#
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~	
+	Browse and search artifacts
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Practical:
+https://www.jfrog.com/confluence/display/JFROG/Browsing+Artifacts
+https://www.jfrog.com/confluence/display/RTF6X/Searching+for+Artifacts
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~	
+
+---------------------------------------------------------------------------------
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~	
+Security and Permissions
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+https://www.jfrog.com/confluence/display/RTF6X/Configuring+Security
+https://www.jfrog.com/confluence/display/JFROG/Permissions
+https://www.jfrog.com/confluence/display/JFROG/Artifactory+Security
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~	
+	Describe the security model and entities, security configuration, API keys
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Sub sections of 
+	https://www.jfrog.com/confluence/display/RTF6X/Configuring+Security
+	https://www.jfrog.com/confluence/display/JFROG/Artifactory+REST+API+V2
+	https://jfrog.com/knowledge-base/what-are-best-practices-for-using-permissions/
+	https://github.com/devopshq/artifactory
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~	
+	Define users and groups
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Practical:
+https://www.jfrog.com/confluence/display/RTF6X/Managing+Users
+https://www.jfrog.com/confluence/display/JFROG/Users+and+Groups
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~	
+	Permission targets
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Practical:
+https://www.jfrog.com/confluence/display/JFROG/Permissions
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~	
+	Create Access tokens and cross instance authentication
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Practical:
+https://www.jfrog.com/confluence/display/JFROG/Access+Tokens
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~	
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~		
+Automation Tools - Rest API and CLI
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~	
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+	Describe how REST APIs and CLI can be used in automation
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+	https://www.jfrog.com/confluence/display/JFROG/Artifactory+REST+API
+	https://www.jfrog.com/confluence/display/RTF6X/Artifactory+REST+API
+	
+	https://greenido.wordpress.com/2019/08/13/jfrog-artifactory-rest-api-in-5min/
+	https://github.com/jfrog/jfrog-cli
+	https://medium.com/jfrogplatform/5-reasons-you-should-be-using-jfrog-cli-aa6235b37e68
+	
+	https://www.jfrog.com/confluence/display/JFROG/REST+API
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~	
+	Create users, groups and access tokens (using automation)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+		https://www.jfrog.com/confluence/display/JFROG/Access+Tokens#
+		https://jfrog.com/knowledge-base/how-to-use-access-tokens-in-your-ci-environment/
+		https://www.jfrog.com/confluence/display/ACC1X/Access+Tokens
+		https://www.jfrog.com/confluence/display/JFROG/Users+and+Groups
+		https://www.jfrog.com/confluence/display/RTF6X/Managing+Users
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~	
+	Deploy, resolve and add properties
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+	https://www.jfrog.com/confluence/display/JFROG/Artifactory+REST+API
+	https://www.jfrog.com/confluence/display/RTF6X/Artifactory+REST+API
+	https://www.jfrog.com/confluence/display/JFROG/Deploying+Artifacts
+	
+	
+	Resolve: Failed Uploads
+		The most common reasons for a rejected deployment are:
+			Lack of permissions
+			A conflict with the target repository's includes/excludes patterns
+			A conflict with the target repository's snapshots/releases handling policy.
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~	
+	Deploy build, resolve artifacts and manage metadata
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+	https://github.com/devopshq/artifactory
+	https://www.jfrog.com/confluence/display/JFROG/Deploying+Artifacts
+Build	
+	https://www.jfrog.com/confluence/display/JFROG/Build+Integration
+	https://www.jfrog.com/confluence/display/RTF6X/Build+Integration
+
+Build and resolve using gradle
+	https://jfrog.com/knowledge-base/artifactory-deploying-and-resolving-different-artifact-types-through-a-gradle-job/
+	
+
+	https://stackoverflow.com/questions/49088326/how-do-i-dynamically-add-metadata-using-artifactory-upload-filespec-in-jenkins-j	
+	
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~	
+
+Build Tools Integration
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~	
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+	https://www.jfrog.com/confluence/display/JFROG/Build+Integration
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+	Generate builds using developer tools
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~	
+	Integrate CI servers with Artifactory
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+	https://www.jfrog.com/confluence/display/JFROG/Jenkins+Artifactory+Plug-in
+	https://www.jfrog.com/confluence/display/JFROG/TeamCity+Artifactory+Plug-in
+	https://www.jfrog.com/confluence/display/JFROG/Bamboo+Artifactory+Plug-in
+	https://www.jfrog.com/confluence/display/JFROG/Artifactory+Azure+DevOps+Extension
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~	
+	Use developer tools to publish builds to Artifactory
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+	https://www.jfrog.com/confluence/display/JFROG/Build+Integration
+	https://www.jfrog.com/confluence/display/JFROG/IDE+Integration
+	https://www.jfrog.com/confluence/display/JFROG/JFrog+Eclipse+IDE+Plugin
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~	
+	Access build information in Artifactory
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+	https://jfrog.com/knowledge-base/what-is-the-new-artifactory-build-info-repository-and-how-do-i-configure-permissions-to-it/
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~	
+	
+Development Pipeline Promotion
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+		https://www.jfrog.com/confluence/display/JFROG/Declarative+Pipeline+Syntax
+		https://www.jfrog.com/confluence/display/JFROG/Scripted+Pipeline+Syntax
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+	Use common stages in a promotion based development lifecycle such as: 
+		develop, 
+		test, 
+		stage and 
+		release artifacts
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+	https://jfrog.com/knowledge-base/an-introduction-to-devops-and-ci-cd/
+	https://jfrog.com/article/ci-cd-integration/#
+	https://www.youtube.com/watch?v=vXzVVvqPrKw
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~	
+	Use Artifactory repositories, properties, permissions that support promotion 
+	-based development
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~	~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+	
+
+Troubleshooting Resolution Errors
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~	
+	Identify the causes of the 40X error codes
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+https://jfrog.com/knowledge-base/artifactory-how-to-resolve-a-400-bad-request-error-when-trying-to-download-or-resolve-artifacts/
+https://www.jfrog.com/jira/browse/RTFACT-21709
+https://jfrog.com/knowledge-base/how-to-fix-404-error-resource-has-expired/
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~	
+	Use logs as a troubleshooting tool
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+	https://www.jfrog.com/confluence/display/JFROG/Troubleshooting
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~	
+	
+References: 	
+User Guide: https://www.jfrog.com/confluence/pages/viewpage.action?pageId=46107472
+Resource center: http://jfrog.com/resource-center

@@ -1,0 +1,230 @@
+Download and install the JFrog Platform
+The default user credentials for logging into the platform are:
+username: admin
+password: password
+You will be asked to change your password after you log in for the first time.
+Activate your trial and take the guided onboarding walkthrough. Please use the following license keys when prompted:
+JFrog Artifactory License Key:
+
+cHJvZHVjdHM6CiAgYXJ0aWZhY3Rvcnk6CiAgICBwcm9kdWN0OiBaWGh3YVhKbGN6b2dNakF5TVMw
+d05pMHhObFF3T1RvME1Ub3pPUzQzT0RkYUNtbGtPaUF6TkdNNFptWTVOUzFqTkRJM0xUUTJaRFl0
+WWpObFpTMDBOREppT0RFM1l6ZzBZMlFLYjNkdVpYSTZJRTFoYzNSbGF3cHdjbTl3WlhKMGFXVnpP
+aUI3ZlFwemFXZHVZWFIxY21VNklHNTFiR3dLZEhKcFlXdzZJSFJ5ZFdVS2RIbHdaVG9nVkZKSlFV
+d0tkbUZzYVdSR2NtOXRPaUF5TURJeExUQTFMVEUzVkRBNU9qUXhPak01TGpjNE4xb0sKICAgIHNp
+Z25hdHVyZTogY25rdkNDc0ptbk1YQmE3NVhIcTNuYTZ2RnRNTGdzNEh4Qm1jQXJpQUZCR0FRdlVs
+QmJIT294bk15MGlpZ3lBNUpiZndGcnp3aEVUVjc0aW1BbC9WT0x1OUd4dXN4OENDNGtJKzhkRmtD
+SWJacGlaSnczOG9NT0lsYVY2R082L3FSc2hqN3llbzU2STdxT1VXdm4vdnpWdlhvNC9IaGZjYUFy
+YnR4Y3RsclBaSjJ2WnRrQVhyakgyOEprV2NKd2pYSFpjSFhQZE91ZEx2TzhCRzBQbXMxWjlKdEI5
+WDE2RnROU2hUb05vUnVrRHRPczd0eS8yaUY4cjMzc1NJamdVbmtXSzV3MGZzUGJtTWczUWdSMmZI
+OXBGZ3phYUR5RmxEUHREeXNCZ3dCZzQzUUFRYW9wbElDWGlGMG9vTzR6elU3WUVaRzRGbnYydzkx
+Y090clk2U25nPT0KdmVyc2lvbjogMQo=
+
+
+JFrog Xray License Key:
+
+cHJvZHVjdHM6CiAgeHJheToKICAgIHByb2R1Y3Q6IFpYaHdhWEpsY3pvZ01qQXlNUzB3TmkweE5s
+UXdPVG8wTVRvek9TNDRNamhhQ21sa09pQmxNMkV3TjJFeU1TMHpNMlpqTFRSallqTXRZV0V5WWkw
+ME1HRXpZMlpsWldVMFpHRUtiM2R1WlhJNklFMWhjM1JsYXdwd2NtOXdaWEowYVdWek9pQjdmUXB6
+YVdkdVlYUjFjbVU2SUc1MWJHd0tkSEpwWVd3NklIUnlkV1VLZEhsd1pUb2dWRkpKUVV3S2RtRnNh
+V1JHY205dE9pQXlNREl4TFRBMUxURTNWREE1T2pReE9qTTVMamd5T0ZvSwogICAgc2lnbmF0dXJl
+OiBRYWFzYU92aGI0OUYrN0k3QUF5aE1GZjJlNUJKSnpaV1MycDhPUWNnMFkrUCtDcDJZU1craHY1
+eXBFSkVSRUhFNVpCempvWC9wUzdRd3NiVHNwWUxMYnNkR2I0UkJVZTFXYXcvSnBVVHRiRjFYQkNX
+Yk1xVmlWYk9jcmRJL1I3cTdBZ0k3bDhvcWhtRE51RnlmdEkwbGpCd2swbldWS2w1NVRqU3NGRW5w
+cUhYL3lIa1psOUFrazBQalhPQUlsT3pVejFabnFhZnFHZWE5Nm9GOEk3RE82R2hML0NDa3dnbGFB
+UDkxdVhNbmt4VHJZYXlRU2JOZ2FRUExDVjkvajkwdFNCRlRFd1A3OTNBNmt5akFKcm1DYUZrdmh2
+cDJ3K0VpdFJ5L3J1UDZ1cWRreHFFSmxTcExWaXZoS0NOeGhLblJ4WFpmcEMzeFN4OHViQXNTK1Yy
+Z1E9PQp2ZXJzaW9uOiAxCg==
+You’re all set! Your JFrog 30-day trial will expire on: Jun 16, 2021
+
+If you need assistance, please contact us at support@jfrog.com
+
+
+
+-------------------------------------------------------------------
+
+Requires Docker Compose on Linux
+
+1. Download the installer
+
+a
+wget -O jfrog-compose-installer.tar.gz "https://releases.jfrog.io/artifactory/jfrog-prox/org/artifactory/pro/docker/jfrog-platform-trial-prox/[RELEASE]/jfrog-platform-trial-prox-[RELEASE]-compose.tar.gz"
+
+2. Extract it
+a
+tar -xvzf jfrog-compose-installer.tar.gz
+
+3. CD into directory
+a
+cd jfrog-platform-trial-pro*
+
+-----------------------------------------------------------------------
+Install docker and docker-compose before executing the below
+-----------------------------------------------------------------------
+
+4. Run the config script
+a
+sudo ./config.sh
+------------------------------------------------------------------------
+Output includes
+	
+Rabbitmq is a dependent service which needs to be started once after install. This needs to be running before start of xray services.
+
+start rabbitmq:      docker-compose -p trial-prox-rabbitmq -f docker-compose-rabbitmq.yaml up -d
+start postgresql:    docker-compose -p trial-prox-postgres -f docker-compose-postgres.yaml up -d
+start:               docker-compose -p trial-prox up -d
+stop:                docker-compose -p trial-prox down
+
+NOTE: The compose file uses several environment variables from the .env file. Remember to run from within the [/home/ubuntu/jfrog-platform-trial-prox-7.18.6-compose] folder
+------------------------------------------------------------------------	
+
+5. Start RabbitMQ
+a
+sudo docker-compose -p trial-pro-rabbitmq -f docker-compose-rabbitmq.yaml up -d
+
+6. Start JFrog Artifactory and Xray
+a
+sudo docker-compose -p trial-pro up -d
+
+RPM for CentOS (7, 8) / RHEL (7, 8)
+
+
+Debian for Debian (9, 10) / Ubuntu (16.04, 18.04)
+
+Setting up for production or need more installation options? See the full installation options.
+
+2. Access the JFrog Platform
+a
+http://<hostname>:8082
+For Example: http://localhost:8082 or http://192.168.86.243:8082
+JFrog Artifactory and JFrog Xray will take about a minute to start up.
+
+Log in using the credentials provided in the trial email and follow the onboarding wizard to apply the licenses found in the same email (or get a trial license)
+
+3. Get Started Fast
+QUICKSTART GUIDE.
+Use this guide to start working with JFrog Artifactory and Xray. Get Started >
+QUESTIONS?
+We’re here to help! Contact Us >
+
+
+--------------------------------------------------------
+
+Login using admin/password.
+Enter the key's received through email.
+
+Base URL: skip this 
+More details on the same below
+https://www.jfrog.com/confluence/display/RTF6X/Configuring+Artifactory#
+
+
+
+------------------------------------------------------------
+Create repository
+
+------------------------------------------------------------
+------------------------------------------------------------
+------------------------------------------------------------
+------------------------------------------------------------
+
+------------------------------------------------------------
+
+------------------------------------------------------------
+------------------------------------------------------------
+------------------------------------------------------------
+------------------------------------------------------------
+
+------------------------------------------------------------
+
+------------------------------------------------------------
+------------------------------------------------------------
+------------------------------------------------------------
+------------------------------------------------------------
+
+------------------------------------------------------------
+
+------------------------------------------------------------
+------------------------------------------------------------
+------------------------------------------------------------
+------------------------------------------------------------
+
+------------------------------------------------------------
+
+------------------------------------------------------------
+------------------------------------------------------------
+------------------------------------------------------------
+------------------------------------------------------------
+
+------------------------------------------------------------
+
+------------------------------------------------------------
+------------------------------------------------------------
+------------------------------------------------------------
+------------------------------------------------------------
+
+------------------------------------------------------------
+
+------------------------------------------------------------
+------------------------------------------------------------
+------------------------------------------------------------
+------------------------------------------------------------
+
+------------------------------------------------------------
+
+------------------------------------------------------------
+------------------------------------------------------------
+------------------------------------------------------------
+------------------------------------------------------------
+------------------------------------------------------------
+
+------------------------------------------------------------
+------------------------------------------------------------
+------------------------------------------------------------
+------------------------------------------------------------
+
+------------------------------------------------------------
+
+------------------------------------------------------------
+------------------------------------------------------------
+------------------------------------------------------------
+------------------------------------------------------------
+
+------------------------------------------------------------
+
+------------------------------------------------------------
+------------------------------------------------------------
+------------------------------------------------------------
+------------------------------------------------------------
+
+------------------------------------------------------------
+
+------------------------------------------------------------
+------------------------------------------------------------
+------------------------------------------------------------
+------------------------------------------------------------
+------------------------------------------------------------
+
+------------------------------------------------------------
+------------------------------------------------------------
+------------------------------------------------------------
+------------------------------------------------------------
+
+------------------------------------------------------------
+
+------------------------------------------------------------
+------------------------------------------------------------
+------------------------------------------------------------
+------------------------------------------------------------
+
+------------------------------------------------------------
+
+------------------------------------------------------------
+------------------------------------------------------------
+------------------------------------------------------------
+------------------------------------------------------------
+
+------------------------------------------------------------
+
+------------------------------------------------------------
+------------------------------------------------------------
+------------------------------------------------------------
+------------------------------------------------------------
